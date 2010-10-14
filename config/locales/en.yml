@@ -1,0 +1,8 @@
+en:
+  label_vcards_field: vCard Field
+  label_vcards_container: vCard Container
+  vcards: User vCards
+  permission_add_vcards_data: Add User vCard Data (fields, containers)
+  permission_delete_vcards_data: Delete User vCard Data (fields, containers)
+  permission_show_vcards_data: Display/Export vCard Data
+  permission_download_vcards_data: Allow downloading of vCards
