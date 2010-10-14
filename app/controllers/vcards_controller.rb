@@ -2,7 +2,7 @@ class VcardsController < ApplicationController
   unloadable
   
 #  before_filter :authorize, :only => :download
-  before_filter :only => :download
+  before_filter :authorize_global, :only => :download
   
   def download
     data = User.find_all_by_status(1).collect { |u| u.vcard.to_s }.to_s 

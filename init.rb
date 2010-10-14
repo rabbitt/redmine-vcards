@@ -1,4 +1,4 @@
-require 'redcloth3'
+
 require 'redmine'
 begin
   require 'config/initializers/session_store.rb'
@@ -37,7 +37,10 @@ Redmine::Plugin.register :redmine_vcards do
 
   menu :account_menu, :vcards, { :controller => 'vcards', :action => 'download' },
        :caption => 'Download Contacts', :before => :logout,
-       :if => Proc.new{ |project| !User.current.anonymous? }
+       :if => Proc.new { |project|
+         user = User.current
+         !user.anonymous? && !!user.allowed_to?({:controller => 'vcards', :action => 'download'}, nil, :global => true)
+       }
 end
 
 # This plugin should be reloaded in development mode.
